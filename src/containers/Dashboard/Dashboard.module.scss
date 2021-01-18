@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  width: 200px;
+  margin-top: 50px;
+  max-height: 100px;
+  align-items: center;
+}

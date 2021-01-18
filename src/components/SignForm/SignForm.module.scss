@@ -1,0 +1,93 @@
+@import "../../common/styles";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  margin: 20px;
+}
+
+.form {
+  border: solid rgba(0, 0, 0, 0.3) 1px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  input {
+    height: 20px;
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    padding: 5px;
+  }
+  label {
+    margin-bottom: 5px;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-family: $font-family;
+  }
+}
+
+.loginButton {
+  margin-top: 20px;
+}
+
+button {
+  background: none;
+  border-radius: 5px;
+  font-family: $font-family;
+  outline: none;
+  height: 50px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  border: solid 1px rgba(0, 0, 0, 0.35);
+  &:hover {
+    background: rgba(1, 1, 1, 0.025);
+    color: #3232ff;
+  }
+  &:active {
+    background: rgba(1, 1, 1, 0.1);
+  }
+
+  div {
+    margin-right: 10px;
+  }
+  span {
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+  }
+}
+
+.facebook {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.error {
+  text-align: center;
+  height: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.noAccount {
+  color: #3232ff;
+  text-align: center;
+  margin: 0;
+}
