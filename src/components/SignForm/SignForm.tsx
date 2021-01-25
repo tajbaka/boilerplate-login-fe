@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 import { Field } from "redux-form";
 
 import google from "./search.png";
