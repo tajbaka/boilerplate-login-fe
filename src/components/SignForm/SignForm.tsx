@@ -66,7 +66,7 @@ export const SignForm: React.SFC<ISignFormProps> = props => {
               width: "30px"
             }}
           />
-          <span> Log in with Google </span>
+          <span> {buttonText} with Google </span>
         </button>
         <button onClick={onSubmitFacebook} className={styles.facebook}>
           <div
@@ -78,7 +78,7 @@ export const SignForm: React.SFC<ISignFormProps> = props => {
               width: "30px"
             }}
           />
-          <span> Log in with Facebook </span>
+          <span> {buttonText} with Facebook </span>
         </button>
         <h4 className={styles.noAccount}>
           {bottomText + " "}

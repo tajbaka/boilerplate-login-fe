@@ -21,7 +21,7 @@ interface ISignUpProps extends InjectedFormProps, RouteComponentProps {
 class SignUp extends Component<ISignUpProps> {
   constructor(props: ISignUpProps) {
     super(props);
-    bindFunctions(this, ["onSubmit", "onSubmitGoogle", "onSubmitFacebook"]);
+    bindFunctions(this, ["onSubmit"]);
   }
 
   public render() {
@@ -37,32 +37,36 @@ class SignUp extends Component<ISignUpProps> {
           bottomLink="/signin"
           errorText={signUpError}
           loading={loading}
-          onLoginClick={handleSubmit(this.onSubmit)}
-          onSubmitGoogle={handleSubmit(this.onSubmitGoogle)}
-          onSubmitFacebook={handleSubmit(this.onSubmitFacebook)}
+          onLoginClick={handleSubmit(e => this.onSubmit({ e, type: "normal" }))}
+          onSubmitGoogle={handleSubmit(() => this.onSubmit({ type: "google" }))}
+          onSubmitFacebook={handleSubmit(() =>
+            this.onSubmit({ type: "facebook" })
+          )}
         />
       </div>
     );
   }
 
   private onSubmit = formProps => {
+    const { type, ...props } = formProps;
+
     const callback = () => {
       this.props.history.push("/dashboard");
     };
-    this.props.onSignUp({ ...formProps, callback });
-  };
 
-  private onSubmitGoogle = () => {
-    window.location.href = "http://localhost:3090/auth/google";
-  };
-  sxxxssxxxsxxxsxxsdeess;
-
-  private onSubmitFacebook = () => {
-    // const callback = () => {
-    //   this.props.history.push("/dashboard");
-    // };
-    // const type = "facebook";
-    // this.props.onSignIn({ type, callback });
+    switch (type) {
+      case "normal":
+        this.props.onSignUp({ ...formProps, callback });
+        break;
+      case "google":
+        window.location.href = "http://localhost:3090/auth/google";
+        break;
+      case "facebook":
+        window.location.href = "http://localhost:3090/auth/facebook";
+        break;
+      default:
+        break;
+    }
   };
 }
 
