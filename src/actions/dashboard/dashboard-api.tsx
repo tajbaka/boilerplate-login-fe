@@ -12,12 +12,9 @@ export const getUsers = ({ dispatch, auth, next }) => {
     payload: true
   });
 
-  console.log("here1");
-
   axiosInstance
     .get("/get-users", config)
     .then(res => {
-      console.log(res.data, "here2");
       dispatch({
         type: DASHBOARD_DATA,
         payload: res.data

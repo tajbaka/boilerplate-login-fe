@@ -11,10 +11,18 @@ interface IDashboard {
   onGetUsers(): void;
 }
 
-class Dashboard extends Component<IDashboard> {
+interface IDashboardState {
+  test?: string;
+}
+
+class Dashboard extends Component<IDashboard, IDashboardState> {
   constructor(props: IDashboard) {
     super(props);
     this.onScroll = this.onScroll.bind(this);
+
+    this.state = {
+      test: "hey"
+    };
   }
 
   public componentWillMount() {
